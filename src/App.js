@@ -41,17 +41,32 @@ class App extends Component {
   }
 
   alterTodo = (e, id) => {
-
-    const todos = this.state.todoList
-    todos[id].done = e.target.checked
     this.setState({
-      todoList: todos
+      todoList: this.state.todoList.map(todo => {
+        if (todo.id === id) {
+          todo.done = e.target.checked
+        }
+        return todo
+      })
     })
+  }
+
+  deleteTodo = (id) => {
+    this.setState({
+      todoList: this.state.todoList.filter(todo => todo.id !== id)
+    })
+  }
+
+  deleteAll = () => {
+    this.setState({
+      todoList: []
+    })
+
   }
 
   render() {
     return (
-      <div>
+      <div className="pb-4" >
         <p className="h2 text-center bg-dark p-2">
           Todo App <br />
           <Clock />
@@ -61,23 +76,30 @@ class App extends Component {
 
           <div className="col-lg-4 col-sm-11 ms-auto me-auto">
 
-              <TodoList title={'Completed Todo List'}
-                todoList={this.state.todoList.filter((todo) => todo.done)}
-                alterTodo={this.alterTodo}
-                bg={'bg-success'} />
+            <TodoList
+              title={'Completed Todo List'}
+              bg={'bg-success'}
+              todoList={this.state.todoList.filter((todo) => todo.done)}
+              alterTodo={this.alterTodo}
+              deleteTodo={this.deleteTodo} />
 
           </div>
 
           <div className="col-lg-4 col-sm-11 ms-auto me-auto">
-            <TodoList title={'Todo List'}
+            <TodoList
+              title={'Todo List'}
+              bg={'bg-danger'}
               todoList={this.state.todoList.filter((todo) => !todo.done)}
               alterTodo={this.alterTodo}
-              bg={'bg-danger'} />
+              deleteTodo={this.deleteTodo} />
           </div>
 
           <div className="col-lg-3 col-sm-11 ms-auto me-auto">
 
-            <Counter count={this.state.counter} />
+            <Counter
+              completed={this.state.todoList.filter(todo => todo.done).length}
+              remaining={this.state.todoList.filter(todo => !todo.done).length}
+              deleteAll={this.deleteAll} />
 
             <AddTodoForm
               inputValue={this.state.inputValue}

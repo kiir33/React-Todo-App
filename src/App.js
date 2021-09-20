@@ -53,21 +53,18 @@ class App extends Component {
     return (
       <div>
         <p className="h2 text-center bg-dark p-2">
-          Todo App <br/>
+          Todo App <br />
           <Clock />
         </p>
 
         <div className="d-flex mt-4">
 
           <div className="col-lg-4 col-sm-11 ms-auto me-auto">
-            <Counter count={this.state.counter} />
 
-            <div className="mt-4">
               <TodoList title={'Completed Todo List'}
                 todoList={this.state.todoList.filter((todo) => todo.done)}
                 alterTodo={this.alterTodo}
                 bg={'bg-success'} />
-            </div>
 
           </div>
 
@@ -79,6 +76,9 @@ class App extends Component {
           </div>
 
           <div className="col-lg-3 col-sm-11 ms-auto me-auto">
+
+            <Counter count={this.state.counter} />
+
             <AddTodoForm
               inputValue={this.state.inputValue}
               updateInputValue={this.updateInputValue}

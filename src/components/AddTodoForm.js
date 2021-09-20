@@ -3,7 +3,7 @@ import React from 'react'
 function AddTodoForm({ inputValue, updateInputValue, addTodo }) {
   return (
     <div>
-      <div className="text-center p-4 bg-dark rounded">
+      <div className="text-center mt-4 p-4 bg-dark rounded">
         <p className="h5">Add New Todo</p>
 
         <form action="#">

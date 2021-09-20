@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import AddTodoForm from './components/AddTodoForm';
 import Counter from './components/Counter';
-import TodoList from './components/TodoList'
+import TodoList from './components/TodoList';
+import Clock from './components/Clock';
 
 class App extends Component {
 
@@ -51,7 +52,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <p className="h2 text-center bg-dark p-2">Todo App</p>
+        <p className="h2 text-center bg-dark p-2">
+          Todo App <br/>
+          <Clock />
+        </p>
 
         <div className="d-flex mt-4">
 

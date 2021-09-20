@@ -18,3 +18,10 @@ You will also see any lint errors in the console.
 Screenshot(s):
 
 ![alt text](https://raw.githubusercontent.com/kiir33/React-Todo-App/main/public/screenshots/app_screnshot.png)
+
+How to use:
+- Add new todo using the "Add New Todo" form
+- Check the todos to move to completed list
+- Uncheck the completed todos to move back to main todo list
+- Click delete icon to delete respective todo
+- Click clear all button to delete all todos

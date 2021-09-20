@@ -7,7 +7,7 @@ function Counter({ completed, remaining, deleteAll }) {
       Completed: <span className="h4 text-success ms-2">{completed}</span><br />
       Remaining : <span className="h4 text-danger ms-2">{remaining}</span><br />
       <button onClick={deleteAll} className="btn btn-danger text-light col-12 mt-4">
-        <BsFillTrashFill className="bi bi-trash m-2" />
+        <BsFillTrashFill className="bi bi-trash me-2" />
         Clear All
       </button>
     </div>
